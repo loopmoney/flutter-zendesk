@@ -77,7 +77,7 @@ class FlutterZendesk {
 
  
 
-  static Future<void> AnonymousIdentity(
+  static Future<void> anonymousIdentity(
       {required String urlString,
       required String appId,
       required String clientId,
