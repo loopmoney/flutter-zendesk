@@ -60,7 +60,8 @@ class _MyAppState extends State<MyApp> {
                 minimumSize: const Size.fromHeight(40),
               ),
               onPressed: () {
-                FlutterZendesk.showRequestList();
+                FlutterZendesk.showRequestList(
+                    id: "", appVersion: "", model: "", osVersion: "");
               },
               child: const Text(
                 'Request List',

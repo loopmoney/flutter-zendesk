@@ -75,8 +75,6 @@ class FlutterZendesk {
     }
   }
 
- 
-
   static Future<void> anonymousIdentity(
       {required String urlString,
       required String appId,
@@ -106,18 +104,22 @@ class FlutterZendesk {
     }
   }
 
- 
- 
- 
-  static Future<void> showRequestList() async {
+  static Future<void> showRequestList(
+      {required String id,
+      required String appVersion,
+      required String osVersion,
+      required String model}) async {
     try {
-      await _channel.invokeMethod('showRequestList');
+      await _channel.invokeMethod('showRequestList', {
+        'id': id,
+        'appVersion': appVersion,
+        'osVersion': osVersion,
+        'model': model,
+      });
     } catch (e) {
       debugPrint('ZendeskMessaging - showRequestList - Error: $e}');
     }
   }
-
- 
 
   static Future<dynamic> _onMethodCall(final MethodCall call) async {
     if (!channelMethodToMessageType.containsKey(call.method)) {
