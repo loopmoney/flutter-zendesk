@@ -43,7 +43,7 @@ class FlutterZendeskPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
      
       "showRequestList" -> {
        
-        zendeskFlutterCombination.showRequestList()
+        zendeskFlutterCombination.showRequestList(call)
       }
       "anonymousIdentity" -> {
            call.argument<String>("zendeskUrl")
