@@ -77,7 +77,7 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
           
         else { return }
 
-            Zendesk.initialize(appId: appId, clientId: clientId, zendeskUrl: zendeskUrl)
+            Zendesk.initialize(appId: appId, clientId: clientId, zendeskUrl: urlString)
         
         let ident = Identity.createAnonymous()
         Zendesk.instance?.setIdentity(ident)
