@@ -25,13 +25,13 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
                 self.anonymousIdentity(dictionary: dic!)
                 break;
             case "showRequestList":
-            //  CommonTheme.currentTheme.primaryColor = UIColor.red
+             CommonTheme.currentTheme.primaryColor = UIColor.red
                   
                   let osPlatForm = CustomField(fieldId: 4419801704337, value: "iOS")
-                  // let osVersion = CustomField(fieldId: 4419806853649, value: dic!["osVersion"] as? String)
-                  // let devModel = CustomField(fieldId: 4419802058513, value: dic!["model"] as? String)
-                  // let userId = CustomField(fieldId: 4419806761105, value:  dic!["id"] as? String)
-                  // let appVersion  = CustomField(fieldId: 4419806867601, value: dic!["appVersion"] as? String)
+                  let osVersion = CustomField(fieldId: 4419806853649, value: dic!["osVersion"] as? String)
+                  let devModel = CustomField(fieldId: 4419802058513, value: dic!["model"] as? String)
+                  let userId = CustomField(fieldId: 4419806761105, value:  dic!["id"] as? String)
+                  let appVersion  = CustomField(fieldId: 4419806867601, value: dic!["appVersion"] as? String)
                   let config = RequestUiConfiguration()
                   config.customFields = [osPlatForm]
                   let helpCenter = RequestUi.buildRequestList(with: [config])                  

@@ -39,7 +39,6 @@ class _MyAppState extends State<MyApp> {
                     40), // fromHeight use double.infinity as width and 40 is the height
               ),
               onPressed: () {
-                print("herree");
                 FlutterZendesk.initialize(
                     appId: "a14de18f781d1bd2c0660152083275f2c43b31ea1b30e2b3",
                     clientId: "mobile_sdk_client_0114e6e9c12d9b12967c",
