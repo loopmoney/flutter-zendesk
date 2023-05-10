@@ -37,9 +37,6 @@ class FlutterZendeskCommonMethod (private val plugin: FlutterZendeskPlugin, priv
         channel.invokeMethod(initializeSuccess, null)
     }
 
-    fun showHelpCenter(){
-        HelpCenterActivity.builder().show(plugin.activity!!);
-    }
 
     fun showRequestList(){
         val osPlatForm = CustomField(4419801704337, "Android")
@@ -48,7 +45,5 @@ class FlutterZendeskCommonMethod (private val plugin: FlutterZendeskPlugin, priv
         RequestListActivity.builder().show(plugin.activity!!,x)
     }
 
-    fun showRequest(){
-        RequestActivity.builder().show(plugin.activity!!)
-    }
+   
 }

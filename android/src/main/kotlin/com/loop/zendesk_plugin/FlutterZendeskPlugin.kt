@@ -28,14 +28,9 @@ class FlutterZendeskPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     val zendeskFlutterCombination = FlutterZendeskCommonMethod(this, channel)
 
     when (call.method) {
-      "getPlatformVersion" -> {
-        result.success("Android ${android.os.Build.VERSION.RELEASE}")
-      }
+    
       "initialize" -> {
-        if (isInitialize) {
-          println("$tag - Messaging is already initialized!")
-          return
-        }
+       
         val appId = call.argument<String>("appId")!!
         val clientId = call.argument<String>("clientId")!!
         val nameIdentifier = call.argument<String>("nameIdentifier")!!
@@ -45,26 +40,22 @@ class FlutterZendeskPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
           clientId = clientId,
           nameIdentifier =nameIdentifier, urlString = urlString  )
       }
-      "showHelpCenter" -> {
-        if (!isInitialize) {
-          println("$tag - Messaging needs to be initialized first")
-          return
-        }
-        zendeskFlutterCombination.showHelpCenter()
-      }
+     
       "showRequestList" -> {
-        if (!isInitialize) {
-          println("$tag - Messaging needs to be initialized first")
-          return
-        }
+       
         zendeskFlutterCombination.showRequestList()
       }
-      "showRequest" -> {
-        if (!isInitialize) {
-          println("$tag - Messaging needs to be initialized first")
-          return
-        }
-        zendeskFlutterCombination.showRequest()
+      "anonymousIdentity" -> {
+           call.argument<String>("zendeskUrl")
+                val appId = call.argument<String>("appId")!!
+            val clientId = call.argument<String>("clientId")!!
+            val nameIdentifier = call.argument<String>("nameIdentifier")!!
+            val urlString = call.argument<String>("urlString")!!
+
+            Zendesk.INSTANCE.init(this, urlString, appId, clientId)
+            val identity: Identity = AnonymousIdentity()
+            Zendesk.INSTANCE.setIdentity(nameIdentifier)
+            Support.INSTANCE.init(Zendesk.INSTANCE)
       }
       else -> {
         result.notImplemented()

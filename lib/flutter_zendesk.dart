@@ -70,20 +70,45 @@ class FlutterZendesk {
         'clientId': clientId,
         'nameIdentifier': nameIdentifier,
       });
-      print("Calll");
     } catch (e) {
       debugPrint('ZendeskMessaging - initialize - Error: $e}');
     }
   }
 
-  static Future<void> showHelpCenter() async {
+ 
+
+  static Future<void> AnonymousIdentity(
+      {required String urlString,
+      required String appId,
+      required String clientId,
+      required String nameIdentifier}) async {
+    if (appId.isEmpty || clientId.isEmpty) {
+      debugPrint('ZendeskMessaging - initialize - ids can not be empty');
+      return;
+    }
+
+    if (nameIdentifier.isEmpty) {
+      debugPrint('ZendeskMessaging - initialize - name id can not be empty');
+      return;
+    }
+
     try {
-      await _channel.invokeMethod('showHelpCenter');
+      _channel.setMethodCallHandler(
+          _onMethodCall); // start observing channel messages
+      await _channel.invokeMethod('anonymousIdentity', {
+        'urlString': urlString,
+        'appId': appId,
+        'clientId': clientId,
+        'nameIdentifier': nameIdentifier,
+      });
     } catch (e) {
-      debugPrint('ZendeskMessaging - showHelpCenter - Error: $e}');
+      debugPrint('ZendeskMessaging - initialize - Error: $e}');
     }
   }
 
+ 
+ 
+ 
   static Future<void> showRequestList() async {
     try {
       await _channel.invokeMethod('showRequestList');
@@ -92,13 +117,7 @@ class FlutterZendesk {
     }
   }
 
-  static Future<void> showRequest() async {
-    try {
-      await _channel.invokeMethod('showRequest');
-    } catch (e) {
-      debugPrint('ZendeskMessaging - showRequest - Error: $e}');
-    }
-  }
+ 
 
   static Future<dynamic> _onMethodCall(final MethodCall call) async {
     if (!channelMethodToMessageType.containsKey(call.method)) {

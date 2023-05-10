@@ -20,7 +20,9 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
        switch(method){
             case "initialize":
                 self.initSupport(dictionary: dic!)
-
+                break;
+                case "anonymousIdentity":
+                self.anonymousIdentity(dictionary: dic!)
                 break;
             case "showRequestList":
             //  CommonTheme.currentTheme.primaryColor = UIColor.red
@@ -66,4 +68,16 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
             
     
         }
+
+        private fun anonymousIdentity(call: MethodCall) {
+                guard let urlString = dictionary["urlString"] as? String,
+                  let appId = dictionary["appId"] as? String,
+                  let clientId = dictionary["clientId"] as? String,
+                  let nameIdentifier = dictionary["nameIdentifier"] as? String
+          
+                Zendesk.INSTANCE.init(this, urlString, appId, clientId)
+                val identity: Identity = AnonymousIdentity()
+                Zendesk.INSTANCE.setIdentity(nameIdentifier)
+                Support.INSTANCE.init(Zendesk.INSTANCE)
+  }
 }
