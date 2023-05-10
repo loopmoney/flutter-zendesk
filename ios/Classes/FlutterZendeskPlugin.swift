@@ -69,7 +69,7 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
     
         }
 
-        private fun anonymousIdentity(call: MethodCall) {
+        private fun anonymousIdentity(dictionary: Dictionary<String, Any>) {
                 guard let urlString = dictionary["urlString"] as? String,
                   let appId = dictionary["appId"] as? String,
                   let clientId = dictionary["clientId"] as? String,
