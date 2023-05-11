@@ -46,16 +46,14 @@ class FlutterZendeskPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         zendeskFlutterCombination.showRequestList(call)
       }
       "anonymousIdentity" -> {
-           call.argument<String>("zendeskUrl")
-                val appId = call.argument<String>("appId")!!
-            val clientId = call.argument<String>("clientId")!!
-            val nameIdentifier = call.argument<String>("nameIdentifier")!!
-            val urlString = call.argument<String>("urlString")!!
-
-            Zendesk.INSTANCE.init(this, urlString, appId, clientId)
-            val identity: Identity = AnonymousIdentity()
-            Zendesk.INSTANCE.setIdentity(nameIdentifier)
-            Support.INSTANCE.init(Zendesk.INSTANCE)
+          val appId = call.argument<String>("appId")!!
+        val clientId = call.argument<String>("clientId")!!
+        val nameIdentifier = call.argument<String>("nameIdentifier")!!
+        val urlString = call.argument<String>("urlString")!!
+        
+          zendeskFlutterCombination.initializeAnonymous(appId =appId,
+          clientId = clientId,
+          nameIdentifier =nameIdentifier, urlString = urlString)
       }
       else -> {
         result.notImplemented()
