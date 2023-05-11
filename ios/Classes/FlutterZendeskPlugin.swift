@@ -33,7 +33,7 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
                   let userId = CustomField(fieldId: 4419806761105, value:  dic!["id"] as? String)
                   let appVersion  = CustomField(fieldId: 4419806867601, value: dic!["appVersion"] as? String)
                   let config = RequestUiConfiguration()
-                  config.customFields = [osPlatForm]
+                  config.customFields = [osPlatForm,osVersion,devModel,userId,appVersion]
                   let helpCenter = RequestUi.buildRequestList(with: [config])                  
                              let rootViewController:UIViewController! = UIApplication.shared.keyWindow?.rootViewController
                                    if (rootViewController is UINavigationController) {
@@ -65,7 +65,6 @@ public class FlutterZendeskPluginClass: NSObject, FlutterPlugin {
         
             Zendesk.instance?.setIdentity(identity)
             Support.initialize(withZendesk: Zendesk.instance)
-            
     
         }
 
