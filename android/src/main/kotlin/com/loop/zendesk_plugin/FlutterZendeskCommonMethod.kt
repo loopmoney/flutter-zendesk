@@ -4,6 +4,7 @@ import android.util.Log
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import zendesk.core.JwtIdentity
+import zendesk.core.AnonymousIdentity
 import zendesk.core.Zendesk
 import zendesk.support.CustomField
 import zendesk.support.Support
