@@ -5,6 +5,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import zendesk.core.JwtIdentity
 import zendesk.core.AnonymousIdentity
+import zendesk.core.Identity
 import zendesk.core.Zendesk
 import zendesk.support.CustomField
 import zendesk.support.Support
@@ -46,9 +47,9 @@ class FlutterZendeskCommonMethod (private val plugin: FlutterZendeskPlugin, priv
         nameIdentifier: String,
     ) {
           
-            Zendesk.INSTANCE.init(this, urlString, appId, clientId)
+            Zendesk.INSTANCE.init(plugin.activity!!, urlString, appId, clientId)
             val identity: Identity = AnonymousIdentity()
-            Zendesk.INSTANCE.setIdentity(nameIdentifier)
+            Zendesk.INSTANCE.setIdentity(identity)
             Support.INSTANCE.init(Zendesk.INSTANCE)
             plugin.isInitialize = true
           channel.invokeMethod(initializeSuccess, null)
