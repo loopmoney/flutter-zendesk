@@ -1,7 +1,6 @@
 name: flutter_zendesk
 description: "Loop project flutter zendesk SDK"
 version: 0.0.1
-homepage: ""
 
 environment:
   sdk: ">=2.17.1 <4.0.0"
@@ -10,12 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
