@@ -74,7 +74,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_zendesk/ios"
 
 SPEC CHECKSUMS:
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_zendesk: c8397a9370c6ff323f4ab73ed717d2f26493b197
   Zendesk: ae0ba9dee76da8aabdbc0f98517e003cca67703c
   ZendeskCommonUISDK: d2dfaa56b9da2658dac0e078022bf918959b5854
@@ -94,6 +94,6 @@ SPEC CHECKSUMS:
   ZendeskSupportProvidersSDK: 44f6639b5845815d4111b97ff00218f122ef9e33
   ZendeskSupportSDK: cae2bd10740bed62d8f89b78e6eea42713cd1e3c
 
-PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
+PODFILE CHECKSUM: c4c93c5f6502fe2754f48404d3594bf779584011
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2
